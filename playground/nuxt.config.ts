@@ -23,27 +23,36 @@ export default defineNuxtConfig({
       necessary: [
         {
           description: {
-            de: 'Dieser Cookie tut etwas.',
-            en: 'This cookie does something very very very very very very very long.',
+            de: 'Funkcne desc',
+            en: 'Funkcne desc',
           },
-          id: 'n',
+          id: 'ncc_f',
           name: {
-            de: 'Notwendiger Cookie',
-            en: 'Necessary Cookie',
+            de: 'Funkcne',
+            en: 'Funkcne',
           },
-          targetCookieIds: ['NEC'],
         },
       ],
       optional: [
         {
-          id: 'o',
-          name: 'Optional Cookie',
+          id: 'stat',
+          name: 'Stat Cookie',
           links: {
             '/': 'Local Privacy Policy',
             'https://example.com': '3rd Party Privacy Policy',
             'https://example.cop': null,
           },
           targetCookieIds: ['_o', '_p', '_t'],
+        },
+        {
+          id: 'marketing',
+          name: 'Marketing Cookie',
+          links: {
+            '/': 'Local Privacy Policy',
+            'https://example.com': '3rd Party Privacy Policy',
+            'https://example.cop': null,
+          },
+          targetCookieIds: ['_a', '_b', '_c'],
         },
       ],
     },

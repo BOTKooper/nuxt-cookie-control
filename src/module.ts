@@ -89,10 +89,19 @@ const blockIframes = (moduleOptions: ModuleOptions) => {
     }
 
     if (moduleOptions.cookies) {
-      if (moduleOptions.cookies.optional) {
-        moduleOptions.cookies.optional.push(isIframeBlocked)
-      } else {
-        moduleOptions.cookies.optional = [isIframeBlocked]
+      const existsInNecessary = moduleOptions.cookies.necessary.find(
+        (cookie) => cookie.id === isIframeBlocked.id,
+      )
+
+      const existsInOptional = moduleOptions.cookies.optional.find(
+        (cookie) => cookie.id === isIframeBlocked.id,
+      )
+
+      if (!existsInNecessary && !existsInOptional) {
+        moduleOptions.cookies.necessary = [
+          ...moduleOptions.cookies.necessary,
+          isIframeBlocked,
+        ]
       }
     }
 

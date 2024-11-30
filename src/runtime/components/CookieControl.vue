@@ -70,7 +70,7 @@
               v-text="localeStrings?.close"
             />
             <template v-for="cookieType in CookieType" :key="cookieType">
-              <template v-if="moduleOptions.cookies[cookieType].length">
+              <template v-if="moduleOptions.cookies[cookieType]?.length">
                 <h2
                   v-text="
                     localeStrings &&
@@ -302,9 +302,7 @@ const getDescription = (description: Translatable) =>
     moduleOptions.isDashInDescriptionEnabled === false ? '' : '-'
   } ${resolveTranslatable(description, props.locale)}`
 const getName = (name: Translatable) => {
-  return name === 'functional'
-    ? localeStrings.value?.cookiesFunctional
-    : resolveTranslatable(name, props.locale)
+  return resolveTranslatable(name, props.locale)
 }
 const init = () => {
   nuxtApp.$cookies.locale.value = props.locale
